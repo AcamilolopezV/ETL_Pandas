@@ -45,7 +45,14 @@ print("\nDataFrame corregido:")
 print(df)
 
 # -----------------------------------------------------
-# deteccion y correccion de errores en los tipos de datos
+# Correcion de variables categoricas en numeros
 # -----------------------------------------------------
+df['Genero'] = df['Genero'].map({'F': 0, 'M': 1})# covertir en variable binaria 0 y 1
+#usar la tecnica de get_dummies para convertir departamento en variables dummy
+df_genero = pd.get_dummies(df, columns=['Departamento'], drop_first=True)
+
+#ver df final
+print("\nDataFrame final:")
+print(df_genero)
 
 
